@@ -1,0 +1,8 @@
+*.o
+*.out
+*.so
+Tupfile
+.fuse*
+*.config
+*.sublime-workspace
+.tup/*

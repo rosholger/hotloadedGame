@@ -1,0 +1,44 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "."
+		}
+	],
+	"settings":
+	{
+		"sublimegdb_commandline": "gdb --directory=~/cpp/hotLoadGame/:~/cpp/hotLoadGame/GameCode --interpreter=mi ${folder:${project_path:build/main.out}}/main.out",
+		"sublimegdb_workingdir": "${folder:${project_path:build/main.out}}",
+        "sublimegdb_gdb_timeout": 20,
+        "sublimegdb_close_views": true,
+        "sublimegdb_debug_ext" : true,
+	    "sublimegdb_layout":
+	    {
+	        // "cols": [0.0, 0.33, 0.66, 1.0],
+	        // "rows": [0.0, 0.75, 1.0],
+	        "cols": [0.0, 0.70, 1.0],
+	        "rows": [0.0, 0.50, 1.0],
+	        "cells":
+	        [ // c1 r1 c2 r2
+	            // [0, 0, 2, 1], // -> (0.00, 0.00), (1.00, 0.75)
+	            // [0, 1, 1, 2], // -> (0.00, 0.75), (0.33, 1.00)
+	            // [1, 1, 2, 2], // -> (0.33, 0.75), (0.66, 1.00)
+	            // [2, 1, 3, 2]  // -> (0.66, 0.75), (1.00, 1.00)
+
+	            [0, 0, 1, 2], // -> (0.00, 0.00), (0.75, 1.00)
+	            [1, 0, 2, 1], // -> (0.00, 0.75), (0.33, 1.00)
+	            [1, 1, 2, 2], // -> (0.33, 0.75), (0.66, 1.00)
+	        ]
+	    },
+    	"sublimegdb_threads_open": false,
+    	"sublimegdb_breakpoints_open": false,
+    	"sublimegdb_session_open": false,
+        "sublimegdb_console_group": 2,
+        "sublimegdb_session_group": 2,
+    	"sublimegdb_i_know_how_to_use_gdb_thank_you_very_much": false,
+    	"sublimegdb_push_pop_layout": false,
+    	"sublimegdb_close_views": false,
+
+	}
+}
