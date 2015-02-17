@@ -9,7 +9,7 @@
 	"settings":
 	{
 		"sublimegdb_commandline": "gdb --directory=~/cpp/hotLoadGame/:~/cpp/hotLoadGame/GameCode --interpreter=mi ${folder:${project_path:build/main.out}}/main.out",
-		"sublimegdb_workingdir": "${folder:${project_path:build/main.out}}",
+		"sublimegdb_workingdir": "${folder:${project_path:main.cpp}}",
         "sublimegdb_gdb_timeout": 20,
         "sublimegdb_close_views": true,
         "sublimegdb_debug_ext" : true,

@@ -6,3 +6,6 @@ Tupfile
 *.config
 *.sublime-workspace
 .tup/*
+*.swp
+*~
+

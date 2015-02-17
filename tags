@@ -1,0 +1,52 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Entity	GameCode/mainGameCode.h	/^struct Entity {$/;"	s
+GameState	GameCode/mainGameCode.h	/^struct GameState {$/;"	s
+Kilobytes	GameCode/mainGameCode.cpp	9;"	d	file:
+Kilobytes	main.cpp	13;"	d	file:
+MAIN_GAME_CODE_H	GameCode/mainGameCode.h	2;"	d
+Megabytes	GameCode/mainGameCode.cpp	10;"	d	file:
+Megabytes	main.cpp	14;"	d	file:
+PI	GameCode/mainGameCode.cpp	8;"	d	file:
+RenderRect	GameCode/mainGameCode.h	/^struct RenderRect {$/;"	s
+TILE_MAP_SIZE_X	GameCode/mainGameCode.h	13;"	d
+TILE_MAP_SIZE_Y	GameCode/mainGameCode.h	14;"	d
+b	GameCode/mainGameCode.h	/^    Uint8 r, g, b;$/;"	m	struct:RenderRect
+checkIfFileModified	main.cpp	/^int checkIfFileModified(const char *path, time_t oldMTime, time_t *newMTime) {$/;"	f
+entities	GameCode/mainGameCode.h	/^	Entity entities[256];	$/;"	m	struct:GameState
+executablePath	GameCode/mainGameCode.h	/^    char executablePath[500];$/;"	m	struct:GameState
+freeSo	main.cpp	/^int freeSo() {$/;"	f
+g	GameCode/mainGameCode.h	/^    Uint8 r, g, b;$/;"	m	struct:RenderRect
+getAbsolutFromRelativePath	main.cpp	/^void getAbsolutFromRelativePath(GameState *state, char const *relativePath, char *destBuf, int destBufSize) {$/;"	f
+getJoystickAxis	GameCode/mainGameCode.cpp	/^float getJoystickAxis(SDL_Joystick *joy, int axisIndex) {$/;"	f
+h	GameCode/mainGameCode.h	/^    float x, y, h, w;$/;"	m	struct:RenderRect
+handle	main.cpp	/^void *handle;$/;"	v
+isInitialised	GameCode/mainGameCode.h	/^    bool isInitialised;$/;"	m	struct:GameState
+joystick	GameCode/mainGameCode.h	/^    SDL_Joystick *joystick;$/;"	m	struct:GameState
+lastKeyboardState	GameCode/mainGameCode.h	/^    const Uint8 lastKeyboardState[512];$/;"	m	struct:GameState
+loadSo	main.cpp	/^int loadSo() {$/;"	f
+main	main.cpp	/^int main(int argc, char const *argv[])$/;"	f
+main	main.cpp	9;"	d	file:
+music	GameCode/mainGameCode.h	/^    Mix_Music *music;$/;"	m	struct:GameState
+onePastLastSlash	GameCode/mainGameCode.h	/^    int onePastLastSlash;$/;"	m	struct:GameState
+pushRenderRect	GameCode/mainGameCode.cpp	/^void pushRenderRect(GameState *state, RenderRect rect) {$/;"	f
+r	GameCode/mainGameCode.h	/^    Uint8 r, g, b;$/;"	m	struct:RenderRect
+renderRects	GameCode/mainGameCode.h	/^    RenderRect renderRects[200];$/;"	m	struct:GameState
+renderRectsTop	GameCode/mainGameCode.h	/^    Uint16 renderRectsTop;$/;"	m	struct:GameState
+renderer	GameCode/mainGameCode.h	/^    SDL_Renderer *renderer;$/;"	m	struct:GameState
+sharedObjectPath	main.cpp	/^char sharedObjectPath[500];$/;"	v
+shown	GameCode/mainGameCode.h	/^    bool shown;$/;"	m	struct:RenderRect
+strippToDir	main.cpp	/^int strippToDir(char *source, int sourceLength) {$/;"	f
+t	GameCode/mainGameCode.h	/^    float t;$/;"	m	struct:GameState
+tileMap	GameCode/mainGameCode.h	/^    char tileMap[375];$/;"	m	struct:GameState
+updateAndRenderGame	GameCode/mainGameCode.cpp	/^bool updateAndRenderGame(void *permStorage) {$/;"	f
+updateAndRenderGame	main.cpp	/^bool (*updateAndRenderGame)(void *);$/;"	v
+w	GameCode/mainGameCode.h	/^    float x, y, h, w;$/;"	m	struct:RenderRect
+x	GameCode/mainGameCode.h	/^	float x, y;$/;"	m	struct:Entity
+x	GameCode/mainGameCode.h	/^    float x, y, h, w;$/;"	m	struct:RenderRect
+y	GameCode/mainGameCode.h	/^	float x, y;$/;"	m	struct:Entity
+y	GameCode/mainGameCode.h	/^    float x, y, h, w;$/;"	m	struct:RenderRect
