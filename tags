@@ -4,49 +4,73 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ENTITY_TYPE_PLAYER	GameCode/mainGameCode.h	/^	ENTITY_TYPE_PLAYER,$/;"	e	enum:EntityType
+ENTITY_TYPE_WALL	GameCode/mainGameCode.h	/^	ENTITY_TYPE_WALL,$/;"	e	enum:EntityType
 Entity	GameCode/mainGameCode.h	/^struct Entity {$/;"	s
+EntityType	GameCode/mainGameCode.h	/^enum EntityType {$/;"	g
 GameState	GameCode/mainGameCode.h	/^struct GameState {$/;"	s
 Kilobytes	GameCode/mainGameCode.cpp	9;"	d	file:
-Kilobytes	main.cpp	13;"	d	file:
+Kilobytes	main.cpp	14;"	d	file:
 MAIN_GAME_CODE_H	GameCode/mainGameCode.h	2;"	d
 Megabytes	GameCode/mainGameCode.cpp	10;"	d	file:
-Megabytes	main.cpp	14;"	d	file:
+Megabytes	main.cpp	15;"	d	file:
 PI	GameCode/mainGameCode.cpp	8;"	d	file:
+Rect	GameCode/mainGameCode.h	/^struct Rect {$/;"	s
 RenderRect	GameCode/mainGameCode.h	/^struct RenderRect {$/;"	s
-TILE_MAP_SIZE_X	GameCode/mainGameCode.h	13;"	d
-TILE_MAP_SIZE_Y	GameCode/mainGameCode.h	14;"	d
+TILESIZE	GameCode/mainGameCode.cpp	11;"	d	file:
+TILE_MAP_SIZE_X	GameCode/mainGameCode.h	38;"	d
+TILE_MAP_SIZE_Y	GameCode/mainGameCode.h	39;"	d
+arrayLength	GameCode/mainGameCode.h	7;"	d
 b	GameCode/mainGameCode.h	/^    Uint8 r, g, b;$/;"	m	struct:RenderRect
 checkIfFileModified	main.cpp	/^int checkIfFileModified(const char *path, time_t oldMTime, time_t *newMTime) {$/;"	f
+collisionRect	GameCode/mainGameCode.h	/^	Rect collisionRect;$/;"	m	struct:Entity
 entities	GameCode/mainGameCode.h	/^	Entity entities[256];	$/;"	m	struct:GameState
+entitiesIntersect	GameCode/mainGameCode.cpp	/^bool entitiesIntersect(Rect a, Rect b, v2 *mtv) {$/;"	f
+entitiesTop	GameCode/mainGameCode.h	/^	Uint64 entitiesTop;$/;"	m	struct:GameState
+entityCollidesWithAnything	GameCode/mainGameCode.cpp	/^bool entityCollidesWithAnything(GameState *state, Entity *entity, v2 *mtv) {$/;"	f
 executablePath	GameCode/mainGameCode.h	/^    char executablePath[500];$/;"	m	struct:GameState
+firstFreeEntity	GameCode/mainGameCode.h	/^	Entity *firstFreeEntity;$/;"	m	struct:GameState
 freeSo	main.cpp	/^int freeSo() {$/;"	f
 g	GameCode/mainGameCode.h	/^    Uint8 r, g, b;$/;"	m	struct:RenderRect
 getAbsolutFromRelativePath	main.cpp	/^void getAbsolutFromRelativePath(GameState *state, char const *relativePath, char *destBuf, int destBufSize) {$/;"	f
 getJoystickAxis	GameCode/mainGameCode.cpp	/^float getJoystickAxis(SDL_Joystick *joy, int axisIndex) {$/;"	f
-h	GameCode/mainGameCode.h	/^    float x, y, h, w;$/;"	m	struct:RenderRect
+getProjectionOverlap	GameCode/mainGameCode.cpp	/^float getProjectionOverlap(v2 proj1, v2 proj2) {$/;"	f
 handle	main.cpp	/^void *handle;$/;"	v
+inactive	GameCode/mainGameCode.h	/^	bool inactive;$/;"	m	struct:Entity
+internalEdgeFlags	GameCode/mainGameCode.h	/^    Uint8 internalEdgeFlags[2];$/;"	m	struct:Rect
+internalEdgeNegativeFlag	GameCode/mainGameCode.h	8;"	d
+internalEdgePosetiveFlag	GameCode/mainGameCode.h	9;"	d
 isInitialised	GameCode/mainGameCode.h	/^    bool isInitialised;$/;"	m	struct:GameState
 joystick	GameCode/mainGameCode.h	/^    SDL_Joystick *joystick;$/;"	m	struct:GameState
+jumpTimer	GameCode/mainGameCode.h	/^    int jumpTimer;$/;"	m	struct:Entity
+jumping	GameCode/mainGameCode.h	/^    bool jumping;$/;"	m	struct:Entity
 lastKeyboardState	GameCode/mainGameCode.h	/^    const Uint8 lastKeyboardState[512];$/;"	m	struct:GameState
 loadSo	main.cpp	/^int loadSo() {$/;"	f
-main	main.cpp	/^int main(int argc, char const *argv[])$/;"	f
-main	main.cpp	9;"	d	file:
+main	main.cpp	/^int main(int argc, char const *argv[]) {$/;"	f
+main	main.cpp	10;"	d	file:
 music	GameCode/mainGameCode.h	/^    Mix_Music *music;$/;"	m	struct:GameState
+newEntity	GameCode/mainGameCode.cpp	/^Entity *newEntity(GameState *gameState) {$/;"	f
+nextFreeEntity	GameCode/mainGameCode.h	/^	Entity *nextFreeEntity;$/;"	m	struct:Entity
 onePastLastSlash	GameCode/mainGameCode.h	/^    int onePastLastSlash;$/;"	m	struct:GameState
+p	GameCode/mainGameCode.h	/^	v2 p;$/;"	m	struct:Entity
+p	GameCode/mainGameCode.h	/^	v2 p;$/;"	m	struct:Rect
+player	GameCode/mainGameCode.h	/^	Entity *player;$/;"	m	struct:GameState
+projectEntityOnAxis	GameCode/mainGameCode.cpp	/^v2 projectEntityOnAxis(v2 axis, Rect r) {$/;"	f
+projectionOverlap	GameCode/mainGameCode.cpp	/^bool projectionOverlap(v2 proj1, v2 proj2) {$/;"	f
 pushRenderRect	GameCode/mainGameCode.cpp	/^void pushRenderRect(GameState *state, RenderRect rect) {$/;"	f
 r	GameCode/mainGameCode.h	/^    Uint8 r, g, b;$/;"	m	struct:RenderRect
+rect	GameCode/mainGameCode.h	/^	Rect rect;$/;"	m	struct:RenderRect
 renderRects	GameCode/mainGameCode.h	/^    RenderRect renderRects[200];$/;"	m	struct:GameState
 renderRectsTop	GameCode/mainGameCode.h	/^    Uint16 renderRectsTop;$/;"	m	struct:GameState
 renderer	GameCode/mainGameCode.h	/^    SDL_Renderer *renderer;$/;"	m	struct:GameState
 sharedObjectPath	main.cpp	/^char sharedObjectPath[500];$/;"	v
 shown	GameCode/mainGameCode.h	/^    bool shown;$/;"	m	struct:RenderRect
+size	GameCode/mainGameCode.h	/^	v2 size;$/;"	m	struct:Rect
 strippToDir	main.cpp	/^int strippToDir(char *source, int sourceLength) {$/;"	f
 t	GameCode/mainGameCode.h	/^    float t;$/;"	m	struct:GameState
 tileMap	GameCode/mainGameCode.h	/^    char tileMap[375];$/;"	m	struct:GameState
+topSpeed	GameCode/mainGameCode.h	/^	float topSpeed;$/;"	m	struct:Entity
+type	GameCode/mainGameCode.h	/^	EntityType type;$/;"	m	struct:Entity
 updateAndRenderGame	GameCode/mainGameCode.cpp	/^bool updateAndRenderGame(void *permStorage) {$/;"	f
 updateAndRenderGame	main.cpp	/^bool (*updateAndRenderGame)(void *);$/;"	v
-w	GameCode/mainGameCode.h	/^    float x, y, h, w;$/;"	m	struct:RenderRect
-x	GameCode/mainGameCode.h	/^	float x, y;$/;"	m	struct:Entity
-x	GameCode/mainGameCode.h	/^    float x, y, h, w;$/;"	m	struct:RenderRect
-y	GameCode/mainGameCode.h	/^	float x, y;$/;"	m	struct:Entity
-y	GameCode/mainGameCode.h	/^    float x, y, h, w;$/;"	m	struct:RenderRect
+velocity	GameCode/mainGameCode.h	/^	v2 velocity;$/;"	m	struct:Entity
