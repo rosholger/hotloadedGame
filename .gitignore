@@ -8,8 +8,5 @@ Tupfile
 .tup/*
 *.swp
 *~
-<<<<<<< HEAD
 build*
-=======
 *tags
->>>>>>> 8f0c7fcbcde9a06d46b1bde4b59cf31b783939ac
