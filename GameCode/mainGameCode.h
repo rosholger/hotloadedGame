@@ -1,9 +1,8 @@
 #ifndef MAIN_GAME_CODE_H
 #define MAIN_GAME_CODE_H 1
-#include <SDL2/SDL.h>
-#include <SDL_mixer.h>
 #include "../vmath.h"
 
+// NOTE (Holger): you have to include SDL.h and SDL_mixer before you include this header!
 #define arrayLength(array) (sizeof(array)/sizeof(*(array)))
 #define internalEdgeNegativeFlag 1 << 0
 #define internalEdgePosetiveFlag 1 << 1
