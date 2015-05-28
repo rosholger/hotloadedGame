@@ -1,10 +1,20 @@
+#ifdef _WIN32
+#include "SDL.h"
+#include "SDL_assert.h"
+#include "SDL_mixer.h"
+#include "SDL_image.h"
+#else
+#include <SDL2/SDL.h>
+#include <SDL_mixer.h>
+#include <SDL_image.h>
+#include <unistd.h>
+#endif
 #include <stdio.h>
 #include <string.h>
-#include <unistd.h>
 // #include <SDL2/SDL_audio.h>
-#include <SDL_mixer.h>
 #include <math.h>
 #include "mainGameCode.h"
+
 #define PI 3.14159265
 #define Kilobytes(value) ((value) * 1024)
 #define Megabytes(value) (Kilobytes(value) * 1024)
