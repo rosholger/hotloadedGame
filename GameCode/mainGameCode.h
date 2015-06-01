@@ -21,6 +21,7 @@ struct RenderRect {
 enum EntityType {
 	ENTITY_TYPE_PLAYER,
 	ENTITY_TYPE_WALL,
+	ENTITY_TYPE_SLOPE,
 };
 
 struct Entity {
@@ -28,6 +29,7 @@ struct Entity {
 	v2 velocity;
 	float topSpeed;
 	Rect collisionRect;
+    int slope;
 	EntityType type;
 	bool inactive;
 	Entity *nextFreeEntity;
@@ -48,8 +50,10 @@ struct GameState {
     Mix_Music *music;
     RenderRect renderRects[200];
     Uint16 renderRectsTop;
+    v2 renderTrigs[200];
+    Uint16 renderTrigsTop;
     char tileMap[375];
-	Entity entities[256];	
+	Entity entities[256];
 	Uint64 entitiesTop;
 	Entity *firstFreeEntity;
 	Entity *player;

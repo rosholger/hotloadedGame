@@ -467,7 +467,7 @@ int main(int argc, char const *argv[])
     getAbsolutFromRelativePath(state, "gameCode_copy.dll", sharedObjectCopyPath, sizeof(sharedObjectCopyPath));
     printf("%s\n", sharedObjectPath);
 
-#if 0
+#if 1
     SDL_Window *window = 0;
     if (SDL_CreateWindowAndRenderer(800, 600, 0, &window, &state->renderer) != 0) {
         printf("SDL_CreateWindowAndRenderer Error: %s\n", SDL_GetError());
@@ -508,26 +508,32 @@ int main(int argc, char const *argv[])
         previous = current;
         lag += elapsed;
         while (lag >= 10) {
-            memset(state->renderRects, 0, sizeof(state->renderRects));
             state->renderRectsTop = 0;
+            state->renderTrigsTop = 0;
             if (updateAndRenderGame(permStorage)) {
                 running = false;
                 break;
             }
             lag -= 10;
         }
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < state->renderRectsTop; i++) {
             RenderRect *rect = state->renderRects + i;
             if (rect->shown) {
                 SDL_SetRenderDrawColor(state->renderer, rect->r, rect->g, rect->b, 255);
                 SDL_Rect sdlrect = {};
-                sdlrect.x = rect->x+0.5;
-                sdlrect.y = rect->y+0.5;
-                sdlrect.h = rect->h+0.5;
-                sdlrect.w = rect->w+0.5;
+                sdlrect.x = rect->rect.p.x+0.5;
+                sdlrect.y = rect->rect.p.y+0.5;
+                sdlrect.w = rect->rect.size.x+0.5;
+                sdlrect.h = rect->rect.size.y+0.5;
                 SDL_RenderFillRect(state->renderer, &sdlrect);
             }
         }
+        for (int i = 0; i < state->renderTrigsTop; i += 3) {
+            SDL_RenderDrawLine(state->renderer, state->renderTrigs[i].x, state->renderTrigs[i].y, state->renderTrigs[i + 1].x, state->renderTrigs[i + 1].y);
+            SDL_RenderDrawLine(state->renderer, state->renderTrigs[i + 1].x, state->renderTrigs[i + 1].y, state->renderTrigs[i + 2].x, state->renderTrigs[i + 2].y);
+            SDL_RenderDrawLine(state->renderer, state->renderTrigs[i].x, state->renderTrigs[i].y, state->renderTrigs[i + 2].x, state->renderTrigs[i + 2].y);
+        }
+            
         SDL_SetRenderDrawColor(state->renderer, 0, 0, 0, 255);
         SDL_RenderPresent(state->renderer);
     }
@@ -544,6 +550,9 @@ int main(int argc, char const *argv[])
     char jsonPath[500];
     getAbsolutFromRelativePath(state, "testJson.json", jsonPath, sizeof(jsonPath));
     SDL_RWops *jsonRW = SDL_RWFromFile(jsonPath, "r");
+    jsonNode node = {};
+    parseJsonRW(jsonRW, &node);
+    SDL_RWclose(jsonRW);
 #if 0
     char jsonRawData[500];
     int numRead = SDL_RWread(jsonRW, jsonRawData, sizeof(char), 500);
@@ -559,9 +568,7 @@ int main(int argc, char const *argv[])
     writeJsonObj(rootNode->child, jsonRW);
     writeStringToRW(jsonRW, "}\n");
 #endif
-    jsonNode node = {};
-    parseJsonRW(jsonRW, &node);
-    SDL_RWclose(jsonRW);
+
 
     SDL_Quit();
     waitForKey();
