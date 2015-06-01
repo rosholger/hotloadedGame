@@ -1,0 +1,23 @@
+BUILD_DIR += ..\build
+LIBS += ..\libs\x64\SDL2.lib
+LIBS += ..\libs\x64\SDL2_mixer.lib
+LIBS += ..\libs\x64\SDL2_image.lib
+
+CXX += cl
+CXX_FLAGS += /Od
+CXX_FLAGS += /c
+CXX_FLAGS += /Zi
+CXX_FLAGS += /FC
+CXX_FLAGS += /I..\include\SDL2
+CXX_FLAGS += /I..\include\SDL2_Mixer
+CXX_FLAGS += /I..\include\SDL2_Image
+
+CXX_LINK += LINK
+CXX_LINK_FLAGS += /DLL
+CXX_LINK_FLAGS += /EXPORT:updateAndRenderGame
+CXX_LINK_FLAGS += /DEBUG
+CXX_LINK_FLAGS += /INCREMENTAL:NO
+CXX_LINK_FLAGS += $(LIBS)
+
+#stupid fuck windows varriants not working, faking it!
+:foreach *.cpp |> $(CXX) $(CXX_FLAGS) /Fo%o /Fd$(BUILD_DIR)\%B_database.pdb %f |> $(BUILD_DIR)\%B.obj | $(BUILD_DIR)\%B_database.pdb

@@ -1,0 +1,33 @@
+BUILD_DIR += build
+LIBS += libs\x64\SDL2.lib
+LIBS += libs\x64\SDL2_mixer.lib
+LIBS += libs\x64\SDL2_image.lib
+
+CXX += cl
+CXX_FLAGS += /Od
+CXX_FLAGS += /c
+CXX_FLAGS += /Zi
+CXX_FLAGS += /FC
+CXX_FLAGS += /I.\include\nxjson
+
+CXX_LINK += LINK
+CXX_LINK_FLAGS += /DEBUG
+CXX_LINK_FLAGS += /INCREMENTAL:NO
+CXX_LINK_FLAGS += $(LIBS)
+
+NX_BUILD_DIR += $(BUILD_DIR)\nxjson
+NX_LIB_DIR += libs\x64
+
+#stupid fuck windows varriants not working, faking it!
+#:libs\nxjson\nxjson.c |> $(CXX) $(CXX_FLAGS) /Fo%o /Fd$(NX_BUILD_DIR)\%B_database.pdb %f |> $(NX_BUILD_DIR)\%B.obj | $(NX_BUILD_DIR)\%B_database.pdb
+#:$(NX_BUILD_DIR)\*.obj |> $(CXX_LINK) /DLL /EXPORT:nx_json_parse,@1 /EXPORT:nx_json_parse_utf8,@2 /EXPORT:nx_json_free,@3 /EXPORT:nx_json_get,@4 /EXPORT:nx_json_item,@5 /Debug /INCREMENTAL:NO /OUT:%o %f |> $(NX_LIB_DIR)\%B.dll | $(NX_LIB_DIR)\%B.exp $(NX_LIB_DIR)\%B.lib
+
+CXX_FLAGS += /IGameCode
+CXX_FLAGS += /I.\include\SDL2
+CXX_FLAGS += /I.\include\SDL2_Mixer
+CXX_FLAGS += /I.\include\SDL2_Image
+:winMain.cpp |> $(CXX) $(CXX_FLAGS) /DJSMN_PARENT_LINKS /Fo%o /Fd$(BUILD_DIR)\%B_database.pdb %f |> $(BUILD_DIR)\%B.obj | $(BUILD_DIR)\%B_database.pdb
+:jsmn.c |> $(CXX) $(CXX_FLAGS) /Fo%o /DJSMN_PARENT_LINKS /Fd$(BUILD_DIR)\%B_database.pdb %f |> $(BUILD_DIR)\%B.obj | $(BUILD_DIR)\%B_database.pdb
+preload $(BUILD_DIR)
+#:$(BUILD_DIR)\*.obj $(NX_LIB_DIR)\nxjson.lib |> $(CXX_LINK) $(CXX_LINK_FLAGS) /OUT:%o %f $(NX_LIB_DIR)\nxjson.lib |> $(BUILD_DIR)\main.exe
+:$(BUILD_DIR)\*.obj |> $(CXX_LINK) $(CXX_LINK_FLAGS) /OUT:%o %f |> $(BUILD_DIR)\main.exe
